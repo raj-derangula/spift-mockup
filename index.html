@@ -183,7 +183,7 @@
       display: grid;
       grid-template-columns: repeat(7, 1fr);
       gap: 6px;
-      margin-top: 24px;
+      margin-top: 16px;
     }
     .day-col {
       display: flex;
@@ -222,9 +222,14 @@
       color: #e53e3e;
     }
     .day-card.lift {
-      background: rgba(66, 153, 225, 0.12);
-      border: 1.5px solid rgba(66, 153, 225, 0.3);
-      color: #63b3ed;
+      background: rgba(72, 187, 120, 0.12);
+      border: 1.5px solid rgba(72, 187, 120, 0.35);
+      color: #68d391;
+    }
+    .day-card.lift-light {
+      background: rgba(236, 201, 75, 0.1);
+      border: 1.5px solid rgba(236, 201, 75, 0.3);
+      color: #ecc94b;
     }
     .day-card.rest {
       background: #1a1a1a;
@@ -237,12 +242,79 @@
 
     /* Schedule detail */
     .schedule-detail {
-      margin-top: 24px;
+      margin-top: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .schedule-row {
+      background: #1a1a1a;
+      border-radius: 14px;
+      padding: 14px 16px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .schedule-row.today-row {
+      border: 1.5px solid #333;
+    }
+    .schedule-day-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: #555;
+      width: 34px;
+      flex-shrink: 0;
+      padding-top: 1px;
+    }
+    .schedule-day-badge.today-label {
+      color: #e53e3e;
+    }
+    .schedule-status {
+      font-size: 14px;
+      flex-shrink: 0;
+      line-height: 1.3;
+    }
+    .schedule-body {
+      flex: 1;
+      min-width: 0;
+    }
+    .schedule-text {
+      font-size: 13px;
+      font-weight: 600;
+      color: #ddd;
+      line-height: 1.3;
+    }
+    .schedule-why {
+      font-size: 11px;
+      color: #555;
+      margin-top: 3px;
+      line-height: 1.4;
+      font-style: italic;
+    }
+    .schedule-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 10px;
+      margin-left: 6px;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+    .tag-green { background: rgba(72,187,120,0.15); color: #68d391; }
+    .tag-yellow { background: rgba(236,201,75,0.12); color: #ecc94b; }
+
+    /* Screen 2.5 reason cards */
+    .reason-list {
       display: flex;
       flex-direction: column;
       gap: 10px;
+      margin-top: 20px;
     }
-    .schedule-row {
+    .reason-card {
       background: #1a1a1a;
       border-radius: 14px;
       padding: 16px 18px;
@@ -250,27 +322,23 @@
       align-items: center;
       gap: 14px;
     }
-    .schedule-day-badge {
-      font-size: 12px;
-      font-weight: 700;
-      color: #555;
+    .reason-card.avoid {
+      opacity: 0.6;
+    }
+    .reason-icon {
+      font-size: 20px;
       width: 36px;
+      text-align: center;
       flex-shrink: 0;
     }
-    .schedule-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-    .schedule-dot.red { background: #e53e3e; }
-    .schedule-dot.blue { background: #63b3ed; }
-    .schedule-dot.grey { background: #333; }
-    .schedule-text {
+    .reason-text {
       font-size: 14px;
       font-weight: 600;
       color: #ddd;
+      line-height: 1.4;
     }
+    .reason-card.good  { border-left: 3px solid #48bb78; }
+    .reason-card.avoid { border-left: 3px solid #e53e3e; }
 
     /* CTA Button */
     .cta-btn {
@@ -503,13 +571,13 @@
       <div class="dot active"></div>
       <div class="dot"></div>
       <div class="dot"></div>
+      <div class="dot"></div>
     </div>
     <div class="screen-header">
-      <div class="app-label">Week Plan</div>
+      <div class="app-label">Smart Schedule</div>
       <div class="screen-title">Your Week</div>
-      <div class="screen-sub">Balanced around your games & recovery.</div>
+      <div class="screen-sub">Built around basketball — every workout has a reason.</div>
     </div>
-    <div class="divider"></div>
 
     <!-- Mini calendar -->
     <div class="week-grid">
@@ -524,82 +592,181 @@
         <div class="day-label">T</div>
         <div class="day-card sport">
           <span class="day-emoji">🏀</span>
-          <span>Game</span>
+          <span>Ball</span>
         </div>
       </div>
       <div class="day-col">
         <div class="day-label">W</div>
-        <div class="day-card lift">
+        <div class="day-card lift-light">
           <span class="day-emoji">💪</span>
-          <span>Lower</span>
+          <span>Light</span>
         </div>
       </div>
       <div class="day-col">
         <div class="day-label">T</div>
-        <div class="day-card rest">
-          <span class="day-emoji">😴</span>
-          <span>Rest</span>
-        </div>
-      </div>
-      <div class="day-col">
-        <div class="day-label">F</div>
         <div class="day-card sport">
           <span class="day-emoji">🏀</span>
           <span>Game</span>
         </div>
       </div>
       <div class="day-col">
+        <div class="day-label">F</div>
+        <div class="day-card rest">
+          <span class="day-emoji">💤</span>
+          <span>Rest</span>
+        </div>
+      </div>
+      <div class="day-col">
         <div class="day-label">S</div>
         <div class="day-card lift">
           <span class="day-emoji">💪</span>
-          <span>Upper</span>
+          <span>Heavy</span>
         </div>
       </div>
       <div class="day-col">
         <div class="day-label">S</div>
         <div class="day-card rest">
-          <span class="day-emoji">😴</span>
+          <span class="day-emoji">💤</span>
           <span>Rest</span>
         </div>
       </div>
     </div>
 
-    <!-- Schedule detail -->
-    <div class="schedule-detail">
-      <div class="schedule-row" style="border: 1.5px solid #333;">
-        <span class="schedule-day-badge" style="color:#e53e3e;">TODAY</span>
-        <span class="schedule-dot blue"></span>
-        <span class="schedule-text">💪 Upper Body – Bench, Rows, Shoulders</span>
+    <!-- Legend -->
+    <div style="display:flex; gap:14px; margin-top:10px; flex-wrap:wrap;">
+      <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:#68d391;">
+        <div style="width:8px;height:8px;border-radius:50%;background:#68d391;"></div> Go hard
       </div>
-      <div class="schedule-row">
-        <span class="schedule-day-badge">TUE</span>
-        <span class="schedule-dot red"></span>
-        <span class="schedule-text">🏀 Basketball – Practice</span>
+      <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:#ecc94b;">
+        <div style="width:8px;height:8px;border-radius:50%;background:#ecc94b;"></div> Modified
       </div>
-      <div class="schedule-row">
-        <span class="schedule-day-badge">WED</span>
-        <span class="schedule-dot blue"></span>
-        <span class="schedule-text">💪 Lower Body – Squats, RDL, Lunges</span>
+      <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:#e53e3e;">
+        <div style="width:8px;height:8px;border-radius:50%;background:#e53e3e;"></div> Sport day
       </div>
-      <div class="schedule-row">
-        <span class="schedule-day-badge">THU</span>
-        <span class="schedule-dot grey"></span>
-        <span class="schedule-text">😴 Rest & Recovery</span>
-      </div>
-      <div class="schedule-row">
-        <span class="schedule-day-badge">FRI</span>
-        <span class="schedule-dot red"></span>
-        <span class="schedule-text">🏀 Basketball – Game Day</span>
+      <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:#444;">
+        <div style="width:8px;height:8px;border-radius:50%;background:#333;"></div> Rest
       </div>
     </div>
 
-    <button class="cta-btn" onclick="goTo('s3')">Start Today's Workout →</button>
+    <!-- Schedule detail with WHY -->
+    <div class="schedule-detail">
+
+      <div class="schedule-row today-row">
+        <span class="schedule-day-badge today-label">TODAY</span>
+        <span class="schedule-status">✅</span>
+        <div class="schedule-body">
+          <div class="schedule-text">💪 Upper Body<span class="schedule-tag tag-green">Go hard</span></div>
+          <div class="schedule-why">Basketball is tomorrow — upper body won't affect your legs or game performance</div>
+        </div>
+      </div>
+
+      <div class="schedule-row">
+        <span class="schedule-day-badge">TUE</span>
+        <span class="schedule-status">🏀</span>
+        <div class="schedule-body">
+          <div class="schedule-text">🏀 Basketball Practice</div>
+          <div class="schedule-why">Sport day — full energy, no gym</div>
+        </div>
+      </div>
+
+      <div class="schedule-row">
+        <span class="schedule-day-badge">WED</span>
+        <span class="schedule-status">⚠️</span>
+        <div class="schedule-body">
+          <div class="schedule-text">💪 Lower Body (Light)<span class="schedule-tag tag-yellow">Modified</span></div>
+          <div class="schedule-why">Light weights today — you played yesterday and have a game tomorrow</div>
+        </div>
+      </div>
+
+      <div class="schedule-row">
+        <span class="schedule-day-badge">THU</span>
+        <span class="schedule-status">🏀</span>
+        <div class="schedule-body">
+          <div class="schedule-text">🏀 Basketball Game</div>
+          <div class="schedule-why">Game day — stay loose, focus on performance</div>
+        </div>
+      </div>
+
+      <div class="schedule-row">
+        <span class="schedule-day-badge">FRI</span>
+        <span class="schedule-status">💤</span>
+        <div class="schedule-body">
+          <div class="schedule-text">Rest & Recovery</div>
+          <div class="schedule-why">Recovery — you played last night, your body needs this</div>
+        </div>
+      </div>
+
+      <div class="schedule-row">
+        <span class="schedule-day-badge">SAT</span>
+        <span class="schedule-status">✅</span>
+        <div class="schedule-body">
+          <div class="schedule-text">💪 Lower Body (Heavy)<span class="schedule-tag tag-green">Go hard</span></div>
+          <div class="schedule-why">2 days since basketball — safe to go heavy, full strength available</div>
+        </div>
+      </div>
+
+      <div class="schedule-row">
+        <span class="schedule-day-badge">SUN</span>
+        <span class="schedule-status">💤</span>
+        <div class="schedule-body">
+          <div class="schedule-text">Rest</div>
+          <div class="schedule-why">Weekly reset before Monday</div>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="cta-btn" onclick="goTo('s25')">Start Today's Workout →</button>
     <button class="back-btn" onclick="goTo('s1')">← Back</button>
+  </div>
+
+  <!-- ─── SCREEN 2.5: Why Upper Body Today? ─── -->
+  <div class="screen" id="s25">
+    <div class="progress-dots" style="margin-top:12px;">
+      <div class="dot done"></div>
+      <div class="dot done"></div>
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <div class="screen-header">
+      <div class="app-label">Smart Logic</div>
+      <div class="screen-title">Why Upper Body<br>today?</div>
+      <div class="screen-sub">Here's how Spift is thinking about your week.</div>
+    </div>
+
+    <div class="reason-list">
+      <div class="reason-card good">
+        <div class="reason-icon">✅</div>
+        <div class="reason-text">You have basketball <strong>tomorrow</strong> — your legs need to be fresh</div>
+      </div>
+      <div class="reason-card good">
+        <div class="reason-icon">✅</div>
+        <div class="reason-text">Upper body training <strong>won't make your legs sore</strong> or slow you down on court</div>
+      </div>
+      <div class="reason-card good">
+        <div class="reason-icon">✅</div>
+        <div class="reason-text">You'll be at <strong>full strength for the game</strong> — no residual fatigue</div>
+      </div>
+      <div class="reason-card avoid">
+        <div class="reason-icon">🚫</div>
+        <div class="reason-text">Skipping legs today so you can <strong>sprint, jump, and cut</strong> at 100% tomorrow</div>
+      </div>
+    </div>
+
+    <div style="background:#1a1a1a; border-radius:14px; padding:16px 18px; margin-top:14px; border-left: 3px solid #e53e3e;">
+      <div style="font-size:11px; font-weight:700; color:#e53e3e; letter-spacing:1px; text-transform:uppercase; margin-bottom:6px;">The Spift Principle</div>
+      <div style="font-size:13px; color:#aaa; line-height:1.5;">Your gym work should make you better at your sport — not hurt your performance. Every session is scheduled with your next game in mind.</div>
+    </div>
+
+    <button class="cta-btn" onclick="goTo('s3')">Got it, let's start →</button>
+    <button class="back-btn" onclick="goTo('s2')">← Back to schedule</button>
   </div>
 
   <!-- ─── SCREEN 3: First Set Check-In ─── -->
   <div class="screen" id="s3">
     <div class="progress-dots" style="margin-top:12px;">
+      <div class="dot done"></div>
       <div class="dot done"></div>
       <div class="dot done"></div>
       <div class="dot active"></div>
@@ -664,12 +831,13 @@
       </button>
     </div>
 
-    <button class="back-btn" onclick="goTo('s2')">← Back</button>
+    <button class="back-btn" onclick="goTo('s25')">← Back</button>
   </div>
 
   <!-- ─── SCREEN 4a: Felt Great ─── -->
   <div class="screen" id="s4a">
     <div class="progress-dots" style="margin-top:12px;">
+      <div class="dot done"></div>
       <div class="dot done"></div>
       <div class="dot done"></div>
       <div class="dot done"></div>
@@ -735,6 +903,7 @@
       <div class="dot done"></div>
       <div class="dot done"></div>
       <div class="dot done"></div>
+      <div class="dot done"></div>
       <div class="dot active"></div>
     </div>
     <div class="screen-header">
@@ -794,6 +963,7 @@
   <!-- ─── SCREEN 4c: Harder ─── -->
   <div class="screen" id="s4c">
     <div class="progress-dots" style="margin-top:12px;">
+      <div class="dot done"></div>
       <div class="dot done"></div>
       <div class="dot done"></div>
       <div class="dot done"></div>
