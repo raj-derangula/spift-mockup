@@ -585,42 +585,42 @@
         <div class="day-label">M</div>
         <div class="day-card lift today">
           <span class="day-emoji">💪</span>
-          <span>Upper</span>
+          <span>Heavy</span>
         </div>
       </div>
       <div class="day-col">
         <div class="day-label">T</div>
+        <div class="day-card lift-light">
+          <span class="day-emoji">💪</span>
+          <span>Upper</span>
+        </div>
+      </div>
+      <div class="day-col">
+        <div class="day-label">W</div>
         <div class="day-card sport">
           <span class="day-emoji">🏀</span>
           <span>Ball</span>
         </div>
       </div>
       <div class="day-col">
-        <div class="day-label">W</div>
-        <div class="day-card lift-light">
-          <span class="day-emoji">💪</span>
-          <span>Light</span>
-        </div>
-      </div>
-      <div class="day-col">
         <div class="day-label">T</div>
-        <div class="day-card sport">
-          <span class="day-emoji">🏀</span>
-          <span>Game</span>
-        </div>
-      </div>
-      <div class="day-col">
-        <div class="day-label">F</div>
         <div class="day-card rest">
           <span class="day-emoji">💤</span>
           <span>Rest</span>
         </div>
       </div>
       <div class="day-col">
-        <div class="day-label">S</div>
-        <div class="day-card lift">
+        <div class="day-label">F</div>
+        <div class="day-card lift-light">
           <span class="day-emoji">💪</span>
-          <span>Heavy</span>
+          <span>Light</span>
+        </div>
+      </div>
+      <div class="day-col">
+        <div class="day-label">S</div>
+        <div class="day-card sport">
+          <span class="day-emoji">🏀</span>
+          <span>Game</span>
         </div>
       </div>
       <div class="day-col">
@@ -655,31 +655,49 @@
         <span class="schedule-day-badge today-label">TODAY</span>
         <span class="schedule-status">✅</span>
         <div class="schedule-body">
-          <div class="schedule-text">💪 Upper Body<span class="schedule-tag tag-green">Go hard</span></div>
-          <div class="schedule-why">Basketball is tomorrow — upper body won't affect your legs or game performance</div>
+          <div class="schedule-text">💪 Lower Body (Heavy)<span class="schedule-tag tag-green">Go hard</span></div>
+          <div class="schedule-why">2 full days until Wednesday's game — legs will be fully recovered</div>
         </div>
       </div>
 
       <div class="schedule-row">
         <span class="schedule-day-badge">TUE</span>
-        <span class="schedule-status">🏀</span>
+        <span class="schedule-status">⚠️</span>
         <div class="schedule-body">
-          <div class="schedule-text">🏀 Basketball Practice</div>
-          <div class="schedule-why">Sport day — full energy, no gym</div>
+          <div class="schedule-text">💪 Upper Body (Moderate)<span class="schedule-tag tag-yellow">Modified</span></div>
+          <div class="schedule-why">Moderate intensity — enough recovery time before Wednesday's game</div>
         </div>
       </div>
 
       <div class="schedule-row">
         <span class="schedule-day-badge">WED</span>
-        <span class="schedule-status">⚠️</span>
+        <span class="schedule-status">🏀</span>
         <div class="schedule-body">
-          <div class="schedule-text">💪 Lower Body (Light)<span class="schedule-tag tag-yellow">Modified</span></div>
-          <div class="schedule-why">Light weights today — you played yesterday and have a game tomorrow</div>
+          <div class="schedule-text">🏀 Basketball Practice / Game</div>
+          <div class="schedule-why">Sport day — full energy, no gym</div>
         </div>
       </div>
 
       <div class="schedule-row">
         <span class="schedule-day-badge">THU</span>
+        <span class="schedule-status">💤</span>
+        <div class="schedule-body">
+          <div class="schedule-text">Rest & Recovery</div>
+          <div class="schedule-why">Recovery day — legs need rest after basketball</div>
+        </div>
+      </div>
+
+      <div class="schedule-row">
+        <span class="schedule-day-badge">FRI</span>
+        <span class="schedule-status">⚠️</span>
+        <div class="schedule-body">
+          <div class="schedule-text">💪 Upper Body (Light)<span class="schedule-tag tag-yellow">Modified</span></div>
+          <div class="schedule-why">Light session — staying fresh for Saturday's game</div>
+        </div>
+      </div>
+
+      <div class="schedule-row">
+        <span class="schedule-day-badge">SAT</span>
         <span class="schedule-status">🏀</span>
         <div class="schedule-body">
           <div class="schedule-text">🏀 Basketball Game</div>
@@ -688,29 +706,11 @@
       </div>
 
       <div class="schedule-row">
-        <span class="schedule-day-badge">FRI</span>
-        <span class="schedule-status">💤</span>
-        <div class="schedule-body">
-          <div class="schedule-text">Rest & Recovery</div>
-          <div class="schedule-why">Recovery — you played last night, your body needs this</div>
-        </div>
-      </div>
-
-      <div class="schedule-row">
-        <span class="schedule-day-badge">SAT</span>
-        <span class="schedule-status">✅</span>
-        <div class="schedule-body">
-          <div class="schedule-text">💪 Lower Body (Heavy)<span class="schedule-tag tag-green">Go hard</span></div>
-          <div class="schedule-why">2 days since basketball — safe to go heavy, full strength available</div>
-        </div>
-      </div>
-
-      <div class="schedule-row">
         <span class="schedule-day-badge">SUN</span>
         <span class="schedule-status">💤</span>
         <div class="schedule-body">
           <div class="schedule-text">Rest</div>
-          <div class="schedule-why">Weekly reset before Monday</div>
+          <div class="schedule-why">Weekly reset — prep for heavy lower body Monday</div>
         </div>
       </div>
 
@@ -720,7 +720,7 @@
     <button class="back-btn" onclick="goTo('s1')">← Back</button>
   </div>
 
-  <!-- ─── SCREEN 2.5: Why Upper Body Today? ─── -->
+  <!-- ─── SCREEN 2.5: Why Heavy Lower Body Today? ─── -->
   <div class="screen" id="s25">
     <div class="progress-dots" style="margin-top:12px;">
       <div class="dot done"></div>
@@ -731,26 +731,26 @@
     </div>
     <div class="screen-header">
       <div class="app-label">Smart Logic</div>
-      <div class="screen-title">Why Upper Body<br>today?</div>
+      <div class="screen-title">Why Heavy Lower<br>Body today?</div>
       <div class="screen-sub">Here's how Spift is thinking about your week.</div>
     </div>
 
     <div class="reason-list">
       <div class="reason-card good">
         <div class="reason-icon">✅</div>
-        <div class="reason-text">You have basketball <strong>tomorrow</strong> — your legs need to be fresh</div>
+        <div class="reason-text"><strong>2 full days</strong> until basketball Wednesday — plenty of recovery time</div>
       </div>
       <div class="reason-card good">
         <div class="reason-icon">✅</div>
-        <div class="reason-text">Upper body training <strong>won't make your legs sore</strong> or slow you down on court</div>
+        <div class="reason-text">Legs will be <strong>fully recovered by game day</strong> — soreness peaks at 48 hrs</div>
       </div>
       <div class="reason-card good">
         <div class="reason-icon">✅</div>
-        <div class="reason-text">You'll be at <strong>full strength for the game</strong> — no residual fatigue</div>
+        <div class="reason-text">You can <strong>train heavy and still perform well</strong> on Wednesday</div>
       </div>
       <div class="reason-card avoid">
         <div class="reason-icon">🚫</div>
-        <div class="reason-text">Skipping legs today so you can <strong>sprint, jump, and cut</strong> at 100% tomorrow</div>
+        <div class="reason-text">We avoid heavy lower body on Tuesday — <strong>too close to the game</strong> to recover</div>
       </div>
     </div>
 
