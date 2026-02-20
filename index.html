@@ -61,9 +61,38 @@
       flex-direction: column;
       padding: 0 24px 40px;
       overflow-y: auto;
+      opacity: 0;
+      transition: opacity 0.2s ease;
     }
     .screen.active {
       display: flex;
+    }
+    .screen.visible {
+      opacity: 1;
+    }
+
+    /* Progress dots */
+    .progress-dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      margin-bottom: 16px;
+      margin-top: 4px;
+    }
+    .progress-dots .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #333;
+      transition: background 0.2s ease, width 0.2s ease;
+    }
+    .progress-dots .dot.active {
+      background: #e53e3e;
+      width: 18px;
+      border-radius: 3px;
+    }
+    .progress-dots .dot.done {
+      background: #555;
     }
 
     /* Header */
@@ -469,6 +498,12 @@
 
   <!-- ─── SCREEN 2: Weekly Schedule ─── -->
   <div class="screen" id="s2">
+    <div class="progress-dots" style="margin-top:12px;">
+      <div class="dot done"></div>
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
     <div class="screen-header">
       <div class="app-label">Week Plan</div>
       <div class="screen-title">Your Week</div>
@@ -564,6 +599,12 @@
 
   <!-- ─── SCREEN 3: First Set Check-In ─── -->
   <div class="screen" id="s3">
+    <div class="progress-dots" style="margin-top:12px;">
+      <div class="dot done"></div>
+      <div class="dot done"></div>
+      <div class="dot active"></div>
+      <div class="dot"></div>
+    </div>
     <div class="screen-header">
       <div class="app-label">Check-In</div>
       <div class="screen-title">Complete your first set of<br>Bench Press</div>
@@ -584,10 +625,14 @@
         </div>
         <div style="width: 1px; background: #222;"></div>
         <div>
-          <div style="font-size: 28px; font-weight: 800; color: #e53e3e;">70<span style="font-size:16px;">kg</span></div>
+          <div style="font-size: 28px; font-weight: 800; color: #e53e3e;">135<span style="font-size:16px;">lbs</span></div>
           <div style="font-size: 12px; color: #555;">Weight</div>
         </div>
       </div>
+    </div>
+
+    <div style="display:flex; align-items:center; gap:8px; margin-top:12px; margin-bottom:4px;">
+      <span style="font-size:13px; color:#555;">⏱ Rest 90s before your next set</span>
     </div>
 
     <div class="divider"></div>
@@ -624,13 +669,19 @@
 
   <!-- ─── SCREEN 4a: Felt Great ─── -->
   <div class="screen" id="s4a">
+    <div class="progress-dots" style="margin-top:12px;">
+      <div class="dot done"></div>
+      <div class="dot done"></div>
+      <div class="dot done"></div>
+      <div class="dot active"></div>
+    </div>
     <div class="screen-header">
       <div class="app-label">Adjusted Plan</div>
       <div class="screen-title">Let's push it 🔥</div>
     </div>
     <div class="result-card great">
       <div class="result-badge">Great session</div>
-      <div class="result-headline">4 sets · Heavier weight<br>You're above your baseline</div>
+      <div class="result-headline">3 sets · Heavier weight<br>Jump to 145 lbs — you've earned it</div>
     </div>
     <div class="exercise-list">
       <div class="exercise-item">
@@ -638,10 +689,10 @@
           <div class="exercise-num">1</div>
           <div>
             <div class="exercise-name">Bench Press</div>
-            <div class="exercise-detail">Increase by 5 kg</div>
+            <div class="exercise-detail">Up to 145 lbs</div>
           </div>
         </div>
-        <div class="exercise-sets">4 × 6</div>
+        <div class="exercise-sets">3 × 6</div>
       </div>
       <div class="exercise-item">
         <div class="exercise-left">
@@ -651,7 +702,7 @@
             <div class="exercise-detail">Keep form tight</div>
           </div>
         </div>
-        <div class="exercise-sets">4 × 8</div>
+        <div class="exercise-sets">3 × 8</div>
       </div>
       <div class="exercise-item">
         <div class="exercise-left">
@@ -661,7 +712,7 @@
             <div class="exercise-detail">Full range of motion</div>
           </div>
         </div>
-        <div class="exercise-sets">4 × 10</div>
+        <div class="exercise-sets">3 × 10</div>
       </div>
       <div class="exercise-item">
         <div class="exercise-left">
@@ -674,12 +725,18 @@
         <div class="exercise-sets">3 × 8</div>
       </div>
     </div>
-    <button class="cta-btn" onclick="goTo('s1')">Done – Back to Home</button>
+    <button class="cta-btn" onclick="goTo('s1')">Finish Workout</button>
     <button class="back-btn" onclick="goTo('s3')">← Re-check</button>
   </div>
 
   <!-- ─── SCREEN 4b: Normal ─── -->
   <div class="screen" id="s4b">
+    <div class="progress-dots" style="margin-top:12px;">
+      <div class="dot done"></div>
+      <div class="dot done"></div>
+      <div class="dot done"></div>
+      <div class="dot active"></div>
+    </div>
     <div class="screen-header">
       <div class="app-label">Adjusted Plan</div>
       <div class="screen-title">Solid. Stick<br>to the plan. 💪</div>
@@ -694,7 +751,7 @@
           <div class="exercise-num">1</div>
           <div>
             <div class="exercise-name">Bench Press</div>
-            <div class="exercise-detail">Stay at 70 kg</div>
+            <div class="exercise-detail">Stay at 135 lbs</div>
           </div>
         </div>
         <div class="exercise-sets">3 × 8</div>
@@ -730,12 +787,18 @@
         <div class="exercise-sets">3 × 15</div>
       </div>
     </div>
-    <button class="cta-btn" onclick="goTo('s1')">Done – Back to Home</button>
+    <button class="cta-btn" onclick="goTo('s1')">Finish Workout</button>
     <button class="back-btn" onclick="goTo('s3')">← Re-check</button>
   </div>
 
   <!-- ─── SCREEN 4c: Harder ─── -->
   <div class="screen" id="s4c">
+    <div class="progress-dots" style="margin-top:12px;">
+      <div class="dot done"></div>
+      <div class="dot done"></div>
+      <div class="dot done"></div>
+      <div class="dot active"></div>
+    </div>
     <div class="screen-header">
       <div class="app-label">Adjusted Plan</div>
       <div class="screen-title">No problem.<br>We've got you. 👊</div>
@@ -750,7 +813,7 @@
           <div class="exercise-num">1</div>
           <div>
             <div class="exercise-name">Bench Press</div>
-            <div class="exercise-detail">Drop to 62.5 kg</div>
+            <div class="exercise-detail">Drop to 115 lbs</div>
           </div>
         </div>
         <div class="exercise-sets">3 × 8</div>
@@ -786,7 +849,7 @@
         <div class="exercise-sets">3 × 10</div>
       </div>
     </div>
-    <button class="cta-btn" onclick="goTo('s1')">Done – Back to Home</button>
+    <button class="cta-btn" onclick="goTo('s1')">Finish Workout</button>
     <button class="back-btn" onclick="goTo('s3')">← Re-check</button>
   </div>
 
@@ -794,11 +857,36 @@
 
 <script>
   function goTo(id) {
-    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    const current = document.querySelector('.screen.active');
     const target = document.getElementById(id);
-    target.classList.add('active');
-    target.scrollTop = 0;
+    if (current === target) return;
+
+    // Fade out current
+    if (current) {
+      current.classList.remove('visible');
+      setTimeout(() => {
+        current.classList.remove('active');
+        // Fade in target
+        target.classList.add('active');
+        target.scrollTop = 0;
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => target.classList.add('visible'));
+        });
+      }, 180);
+    } else {
+      target.classList.add('active');
+      target.scrollTop = 0;
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => target.classList.add('visible'));
+      });
+    }
   }
+
+  // Fade in the first screen on load
+  window.addEventListener('DOMContentLoaded', () => {
+    const first = document.querySelector('.screen.active');
+    if (first) requestAnimationFrame(() => requestAnimationFrame(() => first.classList.add('visible')));
+  });
 
   // Live clock
   function updateClock() {
